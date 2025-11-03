@@ -8,7 +8,7 @@ altura = 800
 tela = pygame.display.set_mode((largura, altura))   # Define o tamanho da janela
 pygame.display.set_caption("Jogo-V1")           # Define o título da janela
 
-background = pygame.image.load("background.png").convert()
+background = pygame.image.load("Background-v2.png").convert()
 background_redim = pygame.transform.scale(background, (largura, altura))  # Redimensiona a imagem de fundo
 
 # Fonte para o texto
