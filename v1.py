@@ -3,13 +3,13 @@ import sys
 
 # Inicializa o pygame
 pygame.init()
-fundo = pygame.image.load("fundo pygame.png").convert_alpha  # Carrega a imagem de fundo
-fundo_redim = pygame.transform.scale(fundo, (1530, 800))  # Redimensiona a imagem de fundo
-# Configurações da janela
 largura = 1530
 altura = 800
 tela = pygame.display.set_mode((largura, altura))   # Define o tamanho da janela
 pygame.display.set_caption("Jogo-V1")           # Define o título da janela
+
+background = pygame.image.load("background.png").convert()
+background_redim = pygame.transform.scale(background, (largura, altura))  # Redimensiona a imagem de fundo
 
 # Fonte para o texto
 fonte = pygame.font.Font(None, 74)          # Define a fonte e o tamanho do texto
@@ -37,14 +37,16 @@ while True:
 
     # Cria o texto formatado
     texto = f"{minutos:02}:{segundos:02}:{milissegundos:02}"        # Formata o tempo como min:s:ms
-    render = fonte.render(texto, True, (255, 255, 255))             # Renderiza o texto em branco
+    render = fonte.render(texto, True, (0, 0, 0))             # Renderiza o texto em branco
 
     # Atualiza a tela
     tela.fill((0, 0, 0))            # Preenche a tela com preto
+    tela.blit(background_redim, (0, 0))    
     tela.blit(render, (1300, 10))   # Desenha o texto na posição (1300, 10)
+    # Desenha o fundo na tela
     pygame.display.flip()               # Atualiza a tela
-    tela.blit(fundo_redim, (0, 0))         # Desenha o fundo na posição (0, 0)
+
     # Controla o FPS (60 quadros por segundo)
     clock.tick(30)
 
-
+pygame.quit()
