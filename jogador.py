@@ -7,7 +7,7 @@ altura = 800
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption("Jogo-V1")
 
-background = pygame.image.load("Background-v2.png").convert()
+background = pygame.image.load("assets/Background-v2.png").convert()
 background_redim = pygame.transform.scale(background, (largura, altura))
 
 fonte = pygame.font.Font(None, 74)
